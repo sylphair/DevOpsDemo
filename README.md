@@ -1,31 +1,40 @@
-# Spring Boot Hello World
+# Spring Boot support for legacy WebLogic
+An example of a spring boot application that can be deployed to a legacy WebLogic server (11g and below) which uses servlet 2.5 api
 
-A spring boot enabled hello world application
+## Dependencies
 
-[![Build Status](https://travis-ci.org/gazgeek/springboot-helloworld.svg?branch=master)](https://travis-ci.org/gazgeek/springboot-helloworld)
+- __spring-boot-starter-parent__: Using version 1.1.12 for Java SE 6 compatibility 1.1.12.RELEASE
+- __servlet-api__: Using version 2.5 supported by legacy WebLogic servers 11g and below
+- __spring-boot-legacy__: Using version 1.0.4 support for legacy (Servlet 2.5) apps in Spring Boot [https://github.com/dsyer/spring-boot-legacy]
+   
+## Running the Application
 
-[![Coverage Status](https://coveralls.io/repos/gazgeek/springboot-helloworld/badge.svg)](https://coveralls.io/r/gazgeek/springboot-helloworld)
+__You do not run this application by executing the main method in `SpringBootWebLogicLegacyApplication.java`. Please read these instructions to launch this application__
 
-- Travis CI build and test
-- Continuous deployment to Heroku on success
+To run the application:
 
-## Usage
+Execute the following commands
+ 
+`cd ~/spring-boot-legacy-weblogic`
 
-- Directly using maven
-```
-mvn spring-boot:run
-```
+`mvn spring-boot:run`
 
-- From within your IDE right click run 
-```
-Application.java
-```
+## Building the WAR
 
-- From executable jar file
-```
-mvn clean install
-java -jar target/helloworld-0.0.1-SNAPSHOT.jar
-```
+__Use the standard Maven Lifecycle "package" goal to create the WAR.__
 
+Note the following commands will fail due to the `spring-boot-starter-tomcat` dependency being given the scope of provided.
 
+`mvn spring-boot:repackage`
 
+## Accessing the Service
+
+Running locally
+
+http://localhost:8080/spring-boot-legacy-app
+
+Running from WebLogic
+
+http://{webLogicServerAddress}:{port}/spring-boot-legacy-app
+
+If you see "Hello World!" then everything is working correctly
