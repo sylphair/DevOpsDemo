@@ -9,6 +9,6 @@ public class Hello
     @RequestMapping("/")
     public String sayHello()
     {
-        return "Hello!";
+        return "Hello!DevOps.";
     }
 }
