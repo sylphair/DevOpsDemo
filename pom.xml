@@ -52,7 +52,7 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-				<artifact-packaging>jar</artifact-packaging>
+				<artifact-packaging>war</artifact-packaging>
 			</properties>
 		</profile>
 		<profile>
